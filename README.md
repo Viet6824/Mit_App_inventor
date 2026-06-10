@@ -33,11 +33,17 @@ Chứa toàn bộ các thành phần được phân loại theo từng nhóm:
 
 Đây là nơi cung cấp các thành phần để xây dựng ứng dụng.
 
+<img width="388" height="835" alt="image" src="https://github.com/user-attachments/assets/8aa780fa-7df1-47f0-920a-bf0ac03e9ccf" />
+
 ### Viewer (Màn hình mô phỏng)
+
+<img width="420" height="674" alt="image" src="https://github.com/user-attachments/assets/22221816-c9c4-4a69-82d1-7e4f0545cbf4" />
 
 Hiển thị giao diện điện thoại, cho phép kéo thả và sắp xếp các thành phần trực quan.
 
 ### Components (Danh sách linh kiện)
+
+<img width="271" height="696" alt="image" src="https://github.com/user-attachments/assets/d6745226-3d85-471d-b978-6c77c0cfc0f8" />
 
 Quản lý toàn bộ các thành phần đã sử dụng dưới dạng cây phân cấp.
 
@@ -48,6 +54,8 @@ Cho phép:
 * Sắp xếp thứ tự hiển thị
 
 ### Properties (Thuộc tính)
+
+<img width="264" height="649" alt="image" src="https://github.com/user-attachments/assets/6b83e40e-a44e-4d2e-85a2-a8fe261add23" />
 
 Dùng để thay đổi:
 
@@ -60,6 +68,8 @@ Dùng để thay đổi:
 ---
 
 ## 2. Kéo thả linh kiện và thay đổi thuộc tính
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/3e890870-a064-4fad-bc27-0206fddfd3a2" />
 
 ### Cách thực hiện
 
@@ -101,6 +111,8 @@ Các khối lệnh đại diện cho:
 * Văn bản
 * Vòng lặp
 * Danh sách
+
+<img width="277" height="642" alt="image" src="https://github.com/user-attachments/assets/10a09e89-0a86-4568-bf05-a71bdb6c4d06" />
 
 Các block hoạt động giống như những mảnh ghép Lego.
 
@@ -206,9 +218,11 @@ Btn_ToScreen3
 Text = Xem Website
 ```
 
-> Chèn ảnh Designer của Screen1 tại đây.
+<img width="1919" height="915" alt="image" src="https://github.com/user-attachments/assets/6b1a86e3-62f3-4aa5-be72-92868bd72d3e" />
 
 ---
+
+
 
 ## 2. Khối lệnh (Blocks)
 
@@ -242,4 +256,247 @@ với:
 "Screen3"
 ```
 
-> Chèn ảnh Blocks Screen1 tại đây.
+<img width="1919" height="931" alt="image" src="https://github.com/user-attachments/assets/539794de-afeb-41b1-9f0f-2b0b49c3be5d" />
+
+# MÀN HÌNH 2: GIẢI PHƯƠNG TRÌNH BẬC NHẤT
+
+## 1. Thiết kế giao diện (Designer)
+
+Screen2 được xây dựng để giải phương trình bậc nhất dạng:
+
+[
+ax+b=0
+]
+
+### Cấu hình Screen2
+
+```text
+Title = Giải Phương Trình Bậc Nhất
+```
+
+### Nhập hệ số a
+
+Kéo một `HorizontalArrangement`, bên trong gồm:
+
+* Label
+
+```text
+Text = Nhập a:
+```
+
+* TextBox
+
+```text
+Tên: Txt_A
+NumbersOnly = True
+```
+
+### Nhập hệ số b
+
+Kéo một `HorizontalArrangement` thứ hai, bên trong gồm:
+
+* Label
+
+```text
+Text = Nhập b:
+```
+
+* TextBox
+
+```text
+Tên: Txt_B
+NumbersOnly = True
+```
+
+### Nút tính toán
+
+```text
+Tên: Btn_Tinh
+Text = Tính nghiệm
+```
+
+### Hiển thị kết quả
+
+Label:
+
+```text
+Tên: Lbl_KetQua
+Text = ""
+TextColor = Red
+```
+
+### Nút quay lại
+
+Button:
+
+```text
+Tên: Btn_Back
+Text = Quay lại
+```
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ae9f0331-c771-4103-9b5b-90d1fcedb369" />
+
+---
+
+## 2. Khối lệnh (Blocks)
+
+Ứng dụng thực hiện biện luận phương trình:
+
+[
+ax+b=0
+]
+
+Theo các trường hợp:
+
+* Nếu a = 0 và b = 0 → Phương trình vô số nghiệm.
+* Nếu a = 0 và b ≠ 0 → Phương trình vô nghiệm.
+* Nếu a ≠ 0 → Phương trình có nghiệm:
+
+[
+x=\frac{-b}{a}
+]
+
+### Thuật toán
+
+```text
+Nếu a = 0
+    Nếu b = 0
+        Vô số nghiệm
+    Ngược lại
+        Vô nghiệm
+Ngược lại
+    x = -b/a
+```
+
+### Cấu trúc khối lệnh
+
+Sử dụng:
+
+* if then else
+* toán tử "="
+* phép chia "/"
+* phép nhân "*"
+* khối join của Text
+
+Ví dụ kết quả:
+
+```text
+Nghiệm x = 2
+```
+
+được tạo bằng cách nối:
+
+```text
+"Nghiệm x = "
++
+(-1 × b)/a
+```
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/17360811-9d2b-469f-898c-ba6328057d23" />
+
+---
+
+# MÀN HÌNH 3: HIỂN THỊ WEBSITE BẰNG WEBVIEWER
+
+## 1. Thiết kế giao diện (Designer)
+
+Screen3 dùng để hiển thị một trang web trực tiếp trên điện thoại.
+
+### Thêm WebViewer
+
+Từ nhóm User Interface kéo linh kiện:
+
+```text
+WebViewer
+```
+
+Thiết lập:
+
+```text
+Width = Fill Parent
+Height = Fill Parent
+```
+
+### Cấu hình HomeUrl
+
+Ví dụ:
+
+```text
+https://en.m.wikipedia.org
+```
+
+Khi mở Screen3, trang web sẽ được tải tự động.
+
+### Nút quay lại
+
+Button:
+
+```text
+Tên: Btn_Back
+Text = Quay lại
+```
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/509e5f2e-cb7c-4d8f-ae1e-57d510dac765" />
+
+---
+
+## 2. Khối lệnh (Blocks)
+
+Sự kiện:
+
+```text
+when Btn_Back.Click
+```
+
+gọi:
+
+```text
+close screen
+```
+
+hoặc:
+
+```text
+open another screen with screenName
+```
+
+và truyền:
+
+```text
+"Screen1"
+```
+
+Linh kiện WebViewer không cần lập trình thêm khối lệnh để tải trang vì URL đã được khai báo trong thuộc tính `HomeUrl`.
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b4ed32b8-a861-47f0-91fd-bac5a2354b0a" />
+
+---
+
+# PHẦN IV: ĐÁNH GIÁ VÀ KẾT LUẬN
+
+## 1. Kết quả
+
+### Screen 1:
+<img width="1260" height="2800" alt="image" src="https://github.com/user-attachments/assets/344b1888-c436-4837-8b00-248a5b864b08" />
+
+### Screen 2:
+<img width="1260" height="2800" alt="image" src="https://github.com/user-attachments/assets/5ebea19e-1d0b-4349-99f7-ceb0ca5bb8fa" />
+
+### Screen 3:
+<img width="1260" height="2800" alt="image" src="https://github.com/user-attachments/assets/34bfde7e-cfd7-4de5-91c5-e651e2e9cbf4" />
+
+## 2. Kết quả đạt được
+
+Sau khi hoàn thành bài tập lớn, ứng dụng đã đáp ứng được các yêu cầu đặt ra:
+
+* Xây dựng thành công ứng dụng gồm ba màn hình độc lập.
+* Chuyển đổi giữa các màn hình ổn định.
+* Giải chính xác phương trình bậc nhất với đầy đủ các trường hợp đặc biệt.
+* Hiển thị được trang web trực tiếp thông qua WebViewer.
+* Giao diện đơn giản, trực quan và dễ sử dụng.
+
+---
+
+## 3. Kết luận
+
+Thông qua bài tập lớn này, có thể thấy MIT App Inventor là một công cụ phù hợp cho việc học và phát triển ứng dụng di động ở mức cơ bản. Cơ chế kéo thả giao diện kết hợp với lập trình khối giúp giảm đáng kể độ phức tạp của cú pháp, đồng thời hỗ trợ người học tập trung vào tư duy thuật toán và thiết kế ứng dụng. Qua quá trình thực hiện, người học đã nắm được quy trình xây dựng một ứng dụng đa màn hình hoàn chỉnh, từ thiết kế giao diện, xử lý sự kiện đến kiểm thử và đóng gói sản phẩm.
